@@ -5,6 +5,7 @@ extension URLRequest {
 
     enum Error: Swift.Error {
         case invalidURL
+        case invalidToken
     }
 
     // MARK: - Initialization
@@ -16,6 +17,29 @@ extension URLRequest {
 
         self.init(url: url)
         setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
-        setValue("Bearer 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", forHTTPHeaderField: "Authorization")
+
+        let token = try fetchAuthorizationToken()
+        setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    }
+}
+
+private extension URLRequest {
+    func fetchAuthorizationToken() throws -> String {
+        guard let path = Bundle.main.path(forResource: "credentials", ofType: "plist") else {
+            throw Error.invalidToken
+        }
+
+        let fileURL = URL(fileURLWithPath: path)
+        let data = try Data(contentsOf: fileURL)
+
+        guard
+            let plist = try PropertyListSerialization.propertyList(from: data,
+                                                                   format: nil) as? [String: String],
+            let token = plist["token"]
+        else {
+            throw Error.invalidToken
+        }
+
+        return token
     }
 }
