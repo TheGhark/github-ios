@@ -27,6 +27,8 @@
 		DB1AEDAF294B879300DFEBE7 /* Repository+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDAE294B879300DFEBE7 /* Repository+Sample.swift */; };
 		DB1AEDB2294B884800DFEBE7 /* RepositoryDTO+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDB1294B884800DFEBE7 /* RepositoryDTO+Sample.swift */; };
 		DB1AEDB4294B8CBA00DFEBE7 /* CommitDTO+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDB3294B8CBA00DFEBE7 /* CommitDTO+Sample.swift */; };
+		DB1AEDB8294B8E9B00DFEBE7 /* RepositoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDB7294B8E9B00DFEBE7 /* RepositoryView.swift */; };
+		DB1AEDBA294B8F0000DFEBE7 /* RepositoryView+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDB9294B8F0000DFEBE7 /* RepositoryView+Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		DB1AEDAE294B879300DFEBE7 /* Repository+Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+Sample.swift"; sourceTree = "<group>"; };
 		DB1AEDB1294B884800DFEBE7 /* RepositoryDTO+Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoryDTO+Sample.swift"; sourceTree = "<group>"; };
 		DB1AEDB3294B8CBA00DFEBE7 /* CommitDTO+Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommitDTO+Sample.swift"; sourceTree = "<group>"; };
+		DB1AEDB7294B8E9B00DFEBE7 /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
+		DB1AEDB9294B8F0000DFEBE7 /* RepositoryView+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoryView+Model.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 		DB1AED85294B2FB800DFEBE7 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				DB1AEDB5294B8E8700DFEBE7 /* views */,
 				DB1AEDA9294B864400DFEBE7 /* extensions */,
 				DB1AED9D294B80A400DFEBE7 /* models */,
 				DB1AED9A294B808A00DFEBE7 /* repository */,
@@ -230,6 +235,23 @@
 				DB1AEDB3294B8CBA00DFEBE7 /* CommitDTO+Sample.swift */,
 			);
 			path = sample;
+			sourceTree = "<group>";
+		};
+		DB1AEDB5294B8E8700DFEBE7 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				DB1AEDB6294B8E9000DFEBE7 /* repository */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		DB1AEDB6294B8E9000DFEBE7 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				DB1AEDB7294B8E9B00DFEBE7 /* RepositoryView.swift */,
+				DB1AEDB9294B8F0000DFEBE7 /* RepositoryView+Model.swift */,
+			);
+			path = repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +356,7 @@
 			files = (
 				DB1AEDA1294B80CA00DFEBE7 /* Commit.swift in Sources */,
 				DB1AED93294B6E6A00DFEBE7 /* RepositoryDTO.swift in Sources */,
+				DB1AEDB8294B8E9B00DFEBE7 /* RepositoryView.swift in Sources */,
 				DB11D21B294B209700B4A93E /* ContentView.swift in Sources */,
 				DB1AED8A294B2FF300DFEBE7 /* Endpoint.swift in Sources */,
 				DB1AED95294B708900DFEBE7 /* URLRequest+Init.swift in Sources */,
@@ -343,6 +366,7 @@
 				DB1AED97294B79FD00DFEBE7 /* CommitDTO.swift in Sources */,
 				DB1AEDAC294B865500DFEBE7 /* DateFormatter+Extensions.swift in Sources */,
 				DB1AED9F294B80B100DFEBE7 /* Repository.swift in Sources */,
+				DB1AEDBA294B8F0000DFEBE7 /* RepositoryView+Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
