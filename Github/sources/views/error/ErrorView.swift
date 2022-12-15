@@ -4,7 +4,7 @@ import SwiftUI
 struct ErrorView: View {
     // MARK: - Properties
 
-    var onTryAgain: () -> Void = { }
+    var onTryAgain: () -> Void = {}
 
     // MARK: - View
 
