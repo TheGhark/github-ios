@@ -10,7 +10,7 @@ extension URLRequest {
     // MARK: - Initialization
 
     init(endpoint: Endpoint) throws {
-        guard let url = endpoint.components?.url else {
+        guard let url = try endpoint.urlComponents().url else {
             throw Error.invalidURL
         }
 

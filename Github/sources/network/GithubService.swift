@@ -3,6 +3,7 @@ import Combine
 
 protocol GithubServiceProtocol {
     func fetchRepositories() -> AnyPublisher<[RepositoryDTO], Swift.Error>
+    func fetchRepository(model: Endpoint.DetailsModel) -> AnyPublisher<RepositoryDTO, Swift.Error>
 }
 
 final class GithubService {
@@ -37,6 +38,17 @@ extension GithubService: GithubServiceProtocol {
         } catch {
             return Fail(error: error).eraseToAnyPublisher()
         }
+    }
 
+    func fetchRepository(model: Endpoint.DetailsModel) -> AnyPublisher<RepositoryDTO, Swift.Error> {
+        do {
+            let request = try URLRequest(endpoint: .repositoryDetails(model: model))
+            return session.dataTaskPublisher(for: request)
+                .map(\.data)
+                .decode(type: RepositoryDTO.self, decoder: JSONDecoder())
+                .eraseToAnyPublisher()
+        } catch {
+            return Fail(error: error).eraseToAnyPublisher()
+        }
     }
 }

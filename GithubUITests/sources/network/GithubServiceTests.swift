@@ -35,6 +35,51 @@ final class GithubServiceTests: XCTestCase {
                 XCTAssertFalse(dtos.isEmpty)
             }
             .store(in: &subscriptions)
+        wait(for: [expectation], timeout: 1)
+    }
+
+    func testFetchRepositoryDetailsSuccess() {
+        let expected = Endpoint.DetailsModel(name: "CSharp-GradeBookApplication",
+                                             owner: "TheGhark")
+        let expectation = self.expectation(description: #function)
+        sut.fetchRepository(model: expected)
+            .map { $0 }
+            .sink { completion in
+                expectation.fulfill()
+                switch completion {
+                case let .failure(error):
+                    XCTFail("The request should have succeeded. Failed with error: \(error)")
+                case .finished:
+                    break
+                }
+            } receiveValue: { dto in
+                XCTAssertEqual(dto.name, expected.name)
+                XCTAssertEqual(dto.owner.login, expected.owner)
+            }
+            .store(in: &subscriptions)
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+    func testFetchRepositoryDetailsFailure() {
+        let expected = Endpoint.DetailsModel(name: "",
+                                             owner: "")
+        let expectation = self.expectation(description: #function)
+        sut.fetchRepository(model: expected)
+            .map { $0 }
+            .sink { completion in
+                expectation.fulfill()
+                switch completion {
+                case let .failure(error):
+                    XCTAssertEqual(error.localizedDescription, Endpoint.Error.invalidRepositoryDetails.localizedDescription)
+                case .finished:
+                    XCTFail("The request should have failed")
+                    break
+                }
+            } receiveValue: { dto in
+                XCTAssertEqual(dto.name, expected.name)
+                XCTAssertEqual(dto.owner.login, expected.owner)
+            }
+            .store(in: &subscriptions)
         wait(for: [expectation], timeout: 0.5)
     }
 }

@@ -3,9 +3,18 @@ import Foundation
 enum Endpoint {
     // MARK: - Types
 
+    enum Error: Swift.Error {
+        case invalidURL
+        case invalidRepositoryDetails
+    }
+
     struct DetailsModel {
         let name: String
         let owner: String
+
+        var isValid: Bool {
+            !name.isEmpty && !owner.isEmpty
+        }
     }
 
     // MARK: - Properties
@@ -17,17 +26,21 @@ enum Endpoint {
     case repositories
     case repositoryDetails(model: DetailsModel)
 
-    // MARK: - Computed Properties
+    // MARK: - Internal
 
-    var components: URLComponents? {
+    func urlComponents() throws -> URLComponents {
         guard var components = URLComponents(string: Self.api) else {
-            return nil
+            throw Error.invalidURL
         }
 
         switch self {
         case .repositories:
             components.path = "/user/repos"
         case let .repositoryDetails(model):
+            guard model.isValid else {
+                throw Error.invalidRepositoryDetails
+            }
+
             components.path = "/repos/\(model.owner)/\(model.name)"
         }
 
