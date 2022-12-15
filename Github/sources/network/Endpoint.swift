@@ -25,6 +25,7 @@ enum Endpoint {
 
     case repositories
     case repositoryDetails(model: DetailsModel)
+    case commits(model: DetailsModel)
 
     // MARK: - Internal
 
@@ -42,6 +43,12 @@ enum Endpoint {
             }
 
             components.path = "/repos/\(model.owner)/\(model.name)"
+        case let .commits(model):
+            guard model.isValid else {
+                throw Error.invalidRepositoryDetails
+            }
+
+            components.path = "/repos/\(model.owner)/\(model.name)/commits"
         }
 
         return components

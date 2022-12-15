@@ -75,10 +75,68 @@ final class GithubServiceTests: XCTestCase {
                     XCTFail("The request should have failed")
                     break
                 }
-            } receiveValue: { dto in
-                XCTAssertEqual(dto.name, expected.name)
-                XCTAssertEqual(dto.owner.login, expected.owner)
+            } receiveValue: { _ in }
+            .store(in: &subscriptions)
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+    func testFetchCommitsSuccess() {
+        let expected = Endpoint.DetailsModel(name: "venues",
+                                             owner: "TheGhark")
+        let expectation = self.expectation(description: #function)
+        sut.fetchCommits(model: expected)
+            .map { $0 }
+            .sink { completion in
+                expectation.fulfill()
+                switch completion {
+                case let .failure(error):
+                    XCTFail("The request should have succeeded. Failed with error: \(error)")
+                case .finished:
+                    break
+                }
+            } receiveValue: { dtos in
+                XCTAssertFalse(dtos.isEmpty)
             }
+            .store(in: &subscriptions)
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+    func testFetchCommitsInvalidDetailsFailure() {
+        let expected = Endpoint.DetailsModel(name: "",
+                                             owner: "TheGhark")
+        let expectation = self.expectation(description: #function)
+        sut.fetchCommits(model: expected)
+            .map { $0 }
+            .sink { completion in
+                expectation.fulfill()
+                switch completion {
+                case let .failure(error):
+                    XCTAssertEqual(error.localizedDescription, Endpoint.Error.invalidRepositoryDetails.localizedDescription)
+                case .finished:
+                    XCTFail("The request should have failed")
+                    break
+                }
+            } receiveValue: { _ in }
+            .store(in: &subscriptions)
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+    func testFetchCommitsFailure() {
+        let expected = Endpoint.DetailsModel(name: "wrong-name",
+                                             owner: "TheGhark")
+        let expectation = self.expectation(description: #function)
+        sut.fetchCommits(model: expected)
+            .map { $0 }
+            .sink { completion in
+                expectation.fulfill()
+                switch completion {
+                case let .failure(error):
+                    XCTAssertEqual(error.localizedDescription, GithubService.Error.failedRequest.localizedDescription)
+                case .finished:
+                    XCTFail("The request should have failed")
+                    break
+                }
+            } receiveValue: { _ in }
             .store(in: &subscriptions)
         wait(for: [expectation], timeout: 0.5)
     }
