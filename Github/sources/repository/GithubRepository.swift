@@ -3,7 +3,6 @@ import Foundation
 
 protocol GithubRepositoryProtocol {
     func fetchRepositories() -> AnyPublisher<[Repository], Swift.Error>
-    func fetchRepository(model: Endpoint.DetailsModel) -> AnyPublisher<Repository, Swift.Error>
     func fetchCommits(model: Endpoint.DetailsModel) -> AnyPublisher<[Commit], Swift.Error>
 }
 
@@ -31,13 +30,6 @@ extension GithubRepository: GithubRepositoryProtocol {
             .map { dtos in
                 dtos.map { $0.toDomain() }
             }
-            .eraseToAnyPublisher()
-    }
-
-    func fetchRepository(model: Endpoint.DetailsModel) -> AnyPublisher<Repository, Swift.Error> {
-        service.fetchRepository(model: model)
-            .receive(on: RunLoop.main)
-            .map { $0.toDomain() }
             .eraseToAnyPublisher()
     }
 

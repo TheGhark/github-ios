@@ -62,47 +62,6 @@ final class GithubRepositoryTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
 
-    func testFetchRepositoryDetailsSuccess() {
-        let dto = RepositoryDTO.sample()
-        let expected = dto.toDomain()
-        let expectation = self.expectation(description: #function)
-        service.repositoryDetailsResult = .success(dto)
-        sut.fetchRepository(model: .init(name: dto.name, owner: dto.owner.login))
-            .map { $0 }
-            .sink { completion in
-                expectation.fulfill()
-                switch completion {
-                case let .failure(error):
-                    XCTFail("The request should have succeeded. Failed with error: \(error)")
-                case .finished:
-                    break
-                }
-            } receiveValue: { repository in
-                XCTAssertEqual(repository, expected)
-            }
-            .store(in: &subscriptions)
-        wait(for: [expectation], timeout: 1)
-    }
-
-    func testFetchRepositoryDetailsFailure() {
-        let expected = GithubService.Error.failedRequest
-        let expectation = self.expectation(description: #function)
-        service.repositoryDetailsResult = .failure(expected)
-        sut.fetchRepository(model: .init(name: "name", owner: "login"))
-            .mapError { $0 }
-            .sink { completion in
-                expectation.fulfill()
-                switch completion {
-                case let .failure(error):
-                    XCTAssertEqual(error.localizedDescription, expected.localizedDescription)
-                case .finished:
-                    XCTFail("The request should have failed")
-                }
-            } receiveValue: { _ in }
-            .store(in: &subscriptions)
-        wait(for: [expectation], timeout: 1)
-    }
-
     func testFetchCommitsSuccess() {
         let dtos: [CommitDTO] = [.sample()]
         let expected = dtos.compactMap { try? $0.toDomain(with: .init()) }

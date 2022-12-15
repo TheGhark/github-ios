@@ -3,7 +3,6 @@ import Foundation
 
 protocol GithubServiceProtocol {
     func fetchRepositories() -> AnyPublisher<[RepositoryDTO], Swift.Error>
-    func fetchRepository(model: Endpoint.DetailsModel) -> AnyPublisher<RepositoryDTO, Swift.Error>
     func fetchCommits(model: Endpoint.DetailsModel) -> AnyPublisher<[CommitDTO], Swift.Error>
 }
 
@@ -37,18 +36,6 @@ extension GithubService: GithubServiceProtocol {
                 .decode(type: [RepositoryDTO].self, decoder: JSONDecoder())
                 .eraseToAnyPublisher()
 
-        } catch {
-            return Fail(error: error).eraseToAnyPublisher()
-        }
-    }
-
-    func fetchRepository(model: Endpoint.DetailsModel) -> AnyPublisher<RepositoryDTO, Swift.Error> {
-        do {
-            let request = try URLRequest(endpoint: .repositoryDetails(model: model))
-            return session.dataTaskPublisher(for: request)
-                .map(\.data)
-                .decode(type: RepositoryDTO.self, decoder: JSONDecoder())
-                .eraseToAnyPublisher()
         } catch {
             return Fail(error: error).eraseToAnyPublisher()
         }
