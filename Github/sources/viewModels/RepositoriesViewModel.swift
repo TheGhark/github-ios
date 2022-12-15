@@ -27,6 +27,7 @@ final class RepositoriesViewModel: ObservableObject {
     // MARK: - Internal
 
     func fetch() {
+        state = .loading
         repository.fetchRepositories()
             .map { $0 }
             .sink { completion in

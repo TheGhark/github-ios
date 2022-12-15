@@ -33,6 +33,9 @@
 		DB1AEDC3294B986600DFEBE7 /* CommitView+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDC2294B986600DFEBE7 /* CommitView+Model.swift */; };
 		DB1AEDC5294BA7B600DFEBE7 /* CommitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDC4294BA7B600DFEBE7 /* CommitsViewModel.swift */; };
 		DB1AEDC8294BA7D900DFEBE7 /* CommitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDC7294BA7D900DFEBE7 /* CommitsView.swift */; };
+		DB1AEDCB294BB09A00DFEBE7 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDCA294BB09A00DFEBE7 /* ErrorView.swift */; };
+		DB1AEDCE294BB25D00DFEBE7 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDCD294BB25D00DFEBE7 /* Palette.swift */; };
+		DB1AEDD1294BB38B00DFEBE7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDD0294BB38B00DFEBE7 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		DB1AEDC2294B986600DFEBE7 /* CommitView+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommitView+Model.swift"; sourceTree = "<group>"; };
 		DB1AEDC4294BA7B600DFEBE7 /* CommitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsViewModel.swift; sourceTree = "<group>"; };
 		DB1AEDC7294BA7D900DFEBE7 /* CommitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsView.swift; sourceTree = "<group>"; };
+		DB1AEDCA294BB09A00DFEBE7 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		DB1AEDCD294BB25D00DFEBE7 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		DB1AEDD0294BB38B00DFEBE7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,7 @@
 		DB1AED85294B2FB800DFEBE7 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				DB1AEDCC294BB25300DFEBE7 /* Color */,
 				DB1AEDBB294B909900DFEBE7 /* viewModels */,
 				DB1AEDB5294B8E8700DFEBE7 /* views */,
 				DB1AED9D294B80A400DFEBE7 /* models */,
@@ -239,6 +246,8 @@
 		DB1AEDB5294B8E8700DFEBE7 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				DB1AEDCF294BB38300DFEBE7 /* loading */,
+				DB1AEDC9294BB09000DFEBE7 /* error */,
 				DB1AEDC6294BA7D000DFEBE7 /* commits */,
 				DB1AEDBF294B982F00DFEBE7 /* commit */,
 				DB1AEDBE294B92DF00DFEBE7 /* repositories */,
@@ -288,6 +297,30 @@
 				DB1AEDC7294BA7D900DFEBE7 /* CommitsView.swift */,
 			);
 			path = commits;
+			sourceTree = "<group>";
+		};
+		DB1AEDC9294BB09000DFEBE7 /* error */ = {
+			isa = PBXGroup;
+			children = (
+				DB1AEDCA294BB09A00DFEBE7 /* ErrorView.swift */,
+			);
+			path = error;
+			sourceTree = "<group>";
+		};
+		DB1AEDCC294BB25300DFEBE7 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				DB1AEDCD294BB25D00DFEBE7 /* Palette.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		DB1AEDCF294BB38300DFEBE7 /* loading */ = {
+			isa = PBXGroup;
+			children = (
+				DB1AEDD0294BB38B00DFEBE7 /* LoadingView.swift */,
+			);
+			path = loading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,10 +430,13 @@
 				DB1AEDB8294B8E9B00DFEBE7 /* RepositoryView.swift in Sources */,
 				DB11D21B294B209700B4A93E /* RepositoriesView.swift in Sources */,
 				DB1AED8A294B2FF300DFEBE7 /* Endpoint.swift in Sources */,
+				DB1AEDCB294BB09A00DFEBE7 /* ErrorView.swift in Sources */,
 				DB1AED95294B708900DFEBE7 /* URLRequest+Init.swift in Sources */,
 				DB1AED9C294B809700DFEBE7 /* GithubRepository.swift in Sources */,
 				DB1AEDC5294BA7B600DFEBE7 /* CommitsViewModel.swift in Sources */,
+				DB1AEDCE294BB25D00DFEBE7 /* Palette.swift in Sources */,
 				DB1AED8D294B6A0300DFEBE7 /* GithubService.swift in Sources */,
+				DB1AEDD1294BB38B00DFEBE7 /* LoadingView.swift in Sources */,
 				DB1AEDC1294B983800DFEBE7 /* CommitView.swift in Sources */,
 				DB11D219294B209700B4A93E /* GithubApp.swift in Sources */,
 				DB1AED97294B79FD00DFEBE7 /* CommitDTO.swift in Sources */,

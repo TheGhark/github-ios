@@ -15,16 +15,27 @@ struct CommitsView: View {
     // MARK: - View
 
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(viewModel.models, id:\.self) { model in
-                    CommitView(model: model)
+        ZStack {
+            NavigationStack {
+                switch viewModel.state {
+                case .loading:
+                    LoadingView(message: "Fetching commits ...")
+                case .failed:
+                    ErrorView {
+                        viewModel.fetch()
+                    }
+                case .ready:
+                    List {
+                        ForEach(viewModel.models, id:\.self) { model in
+                            CommitView(model: model)
+                        }
+                    }
+                    .navigationTitle("Commits")
                 }
             }
-            .navigationTitle("Commits")
-            .onAppear {
-                viewModel.fetch()
-            }
+        }
+        .onAppear {
+            viewModel.fetch()
         }
     }
 }

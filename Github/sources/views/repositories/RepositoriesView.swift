@@ -14,19 +14,30 @@ struct RepositoriesView: View {
     // MARK: - View
 
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(viewModel.models, id:\.self) { model in
-                    NavigationLink {
-                        CommitsView(viewModel: .init(detailsModel: model.detailsModel))
-                    } label: {
-                        RepositoryView(model: model)
+        ZStack {
+            NavigationStack {
+                switch viewModel.state {
+                case .loading:
+                    LoadingView(message: "Fetching your repos...")
+                case .failed:
+                    ErrorView {
+                        viewModel.fetch()
                     }
-                    .frame(minHeight: 45)
+                case .ready:
+                    List {
+                        ForEach(viewModel.models, id:\.self) { model in
+                            NavigationLink {
+                                CommitsView(viewModel: .init(detailsModel: model.detailsModel))
+                            } label: {
+                                RepositoryView(model: model)
+                            }
+                            .frame(minHeight: 45)
+                        }
+                    }
+                    .listStyle(InsetGroupedListStyle())
+                    .navigationTitle("Repositories")
                 }
             }
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Repositories")
         }
         .onAppear {
             viewModel.fetch()
