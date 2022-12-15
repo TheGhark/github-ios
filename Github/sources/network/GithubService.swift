@@ -1,5 +1,5 @@
-import Foundation
 import Combine
+import Foundation
 
 protocol GithubServiceProtocol {
     func fetchRepositories() -> AnyPublisher<[RepositoryDTO], Swift.Error>

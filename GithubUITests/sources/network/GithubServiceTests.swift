@@ -1,7 +1,7 @@
-import Foundation
-import XCTest
 import Combine
+import Foundation
 @testable import Github
+import XCTest
 
 final class GithubServiceTests: XCTestCase {
     var sut: GithubServiceProtocol!
@@ -19,7 +19,7 @@ final class GithubServiceTests: XCTestCase {
         super.tearDown()
     }
 
-    func  testFetchRepositoriesSuccess() {
+    func testFetchRepositoriesSuccess() {
         let expectation = self.expectation(description: #function)
         sut.fetchRepositories()
             .map { $0 }
@@ -73,7 +73,6 @@ final class GithubServiceTests: XCTestCase {
                     XCTAssertEqual(error.localizedDescription, Endpoint.Error.invalidRepositoryDetails.localizedDescription)
                 case .finished:
                     XCTFail("The request should have failed")
-                    break
                 }
             } receiveValue: { _ in }
             .store(in: &subscriptions)
@@ -114,7 +113,6 @@ final class GithubServiceTests: XCTestCase {
                     XCTAssertEqual(error.localizedDescription, Endpoint.Error.invalidRepositoryDetails.localizedDescription)
                 case .finished:
                     XCTFail("The request should have failed")
-                    break
                 }
             } receiveValue: { _ in }
             .store(in: &subscriptions)
@@ -134,7 +132,6 @@ final class GithubServiceTests: XCTestCase {
                     XCTAssertEqual(error.localizedDescription, GithubService.Error.failedRequest.localizedDescription)
                 case .finished:
                     XCTFail("The request should have failed")
-                    break
                 }
             } receiveValue: { _ in }
             .store(in: &subscriptions)
