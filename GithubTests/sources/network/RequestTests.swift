@@ -16,11 +16,4 @@ final class RequestTests: XCTestCase {
         let request = try URLRequest(endpoint: .repositories)
         XCTAssertEqual(request.url?.absoluteString, "https://api.github.com/user/repos")
     }
-
-    func testRepositoryDetailsRequest() throws {
-        let detailsModel = Endpoint.DetailsModel(name: "CSharp-GradeBookApplication",
-                                                 owner: "TheGhark")
-        let request = try URLRequest(endpoint: .repositoryDetails(model: detailsModel))
-        XCTAssertEqual(request.url?.absoluteString, "https://api.github.com/repos/TheGhark/CSharp-GradeBookApplication")
-    }
 }
