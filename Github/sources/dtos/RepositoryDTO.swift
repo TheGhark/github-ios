@@ -10,3 +10,15 @@ extension RepositoryDTO {
         let login: String
     }
 }
+
+extension RepositoryDTO {
+    func toDomain() -> Repository {
+        .init(name: name, owner: owner.toDomain())
+    }
+}
+
+extension RepositoryDTO.OwnerDTO {
+    func toDomain() -> Repository.Owner {
+        .init(login: login)
+    }
+}

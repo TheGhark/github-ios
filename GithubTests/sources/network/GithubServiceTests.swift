@@ -65,7 +65,7 @@ final class GithubServiceTests: XCTestCase {
                                              owner: "")
         let expectation = self.expectation(description: #function)
         sut.fetchRepository(model: expected)
-            .map { $0 }
+            .mapError { $0 }
             .sink { completion in
                 expectation.fulfill()
                 switch completion {
@@ -105,7 +105,7 @@ final class GithubServiceTests: XCTestCase {
                                              owner: "TheGhark")
         let expectation = self.expectation(description: #function)
         sut.fetchCommits(model: expected)
-            .map { $0 }
+            .mapError { $0 }
             .sink { completion in
                 expectation.fulfill()
                 switch completion {
@@ -124,7 +124,7 @@ final class GithubServiceTests: XCTestCase {
                                              owner: "TheGhark")
         let expectation = self.expectation(description: #function)
         sut.fetchCommits(model: expected)
-            .map { $0 }
+            .mapError { $0 }
             .sink { completion in
                 expectation.fulfill()
                 switch completion {
