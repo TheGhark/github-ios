@@ -37,6 +37,12 @@ struct RepositoryView: View {
             Image(systemName: "chevron.right")
                 .foregroundColor(.black.opacity(0.5))
         }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 8)
+                .fill(.white)
+                .shadow(radius: 1)
+        )
         .padding([.leading, .trailing])
     }
 }

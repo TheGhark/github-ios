@@ -3,9 +3,11 @@ import Foundation
 
 extension Repository {
     static func sample(name: String = "venues",
-                       owner: Owner = .sample()) -> Self {
+                       owner: Owner = .sample(),
+                       description: String? = nil) -> Self {
         .init(name: name,
-              owner: owner)
+              owner: owner,
+        description: description)
     }
 }
 

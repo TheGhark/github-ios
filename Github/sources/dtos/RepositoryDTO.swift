@@ -3,6 +3,7 @@ import Foundation
 struct RepositoryDTO: Decodable {
     let name: String
     let owner: OwnerDTO
+    let description: String?
 }
 
 extension RepositoryDTO {
@@ -13,7 +14,9 @@ extension RepositoryDTO {
 
 extension RepositoryDTO {
     func toDomain() -> Repository {
-        .init(name: name, owner: owner.toDomain())
+        .init(name: name,
+              owner: owner.toDomain(),
+         description: description)
     }
 }
 
