@@ -105,7 +105,7 @@ final class GithubRepositoryTests: XCTestCase {
 
     func testFetchCommitsSuccess() {
         let dtos: [CommitDTO] = [.sample()]
-        let expected = dtos.compactMap { try? $0.toDomain(with: .iso) }
+        let expected = dtos.compactMap { try? $0.toDomain(with: .init()) }
         let expectation = self.expectation(description: #function)
         service.commitsResult = .success(dtos)
         sut.fetchCommits(model: .init(name: "venues", owner: "TheGhark"))

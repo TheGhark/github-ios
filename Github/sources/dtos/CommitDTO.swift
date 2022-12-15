@@ -34,21 +34,21 @@ extension CommitDTO.DetailsDTO {
 }
 
 extension CommitDTO {
-    func toDomain(with dateFormatter: DateFormatter) throws -> Commit {
+    func toDomain(with dateFormatter: ISO8601DateFormatter) throws -> Commit {
         .init(sha: sha,
               details: try details.toDomain(with: dateFormatter))
     }
 }
 
 extension CommitDTO.DetailsDTO {
-    func toDomain(with dateFormatter: DateFormatter) throws -> Commit.Details {
+    func toDomain(with dateFormatter: ISO8601DateFormatter) throws -> Commit.Details {
         .init(author: try author.toDomain(with: dateFormatter),
               message: message)
     }
 }
 
 extension CommitDTO.DetailsDTO.AuthorDTO {
-    func toDomain(with dateFormatter: DateFormatter) throws -> Commit.Details.Author {
+    func toDomain(with dateFormatter: ISO8601DateFormatter) throws -> Commit.Details.Author {
         guard let date = dateFormatter.date(from: date) else {
             throw CommitDTO.Error.invalidDate
         }

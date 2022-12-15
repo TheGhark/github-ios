@@ -10,12 +10,12 @@ protocol GithubRepositoryProtocol {
 final class GithubRepository {
     // MARK: - Properties
 
-    private let dateFormatter: DateFormatter
+    private let dateFormatter: ISO8601DateFormatter
     private let service: GithubServiceProtocol
 
     // MARK: - Initialization
 
-    init(dateFormatter: DateFormatter = .iso,
+    init(dateFormatter: ISO8601DateFormatter = .init(),
          service: GithubServiceProtocol = GithubService()) {
         self.dateFormatter = dateFormatter
         self.service = service
@@ -44,8 +44,15 @@ extension GithubRepository: GithubRepositoryProtocol {
     func fetchCommits(model: Endpoint.DetailsModel) -> AnyPublisher<[Commit], Swift.Error> {
         service.fetchCommits(model: model)
             .receive(on: RunLoop.main)
-            .map { dtos in
-                dtos.compactMap { try? $0.toDomain(with: self.dateFormatter) }
+            .tryMap { dtos in
+                var commits: [Commit] = []
+
+                for dto in dtos {
+                    let commit = try dto.toDomain(with: self.dateFormatter)
+                    commits.append(commit)
+                }
+
+                return commits
             }
             .eraseToAnyPublisher()
     }

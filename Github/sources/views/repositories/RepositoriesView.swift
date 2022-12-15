@@ -15,13 +15,17 @@ struct RepositoriesView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.models, id:\.self) { model in
+            List {
+                ForEach(viewModel.models, id:\.self) { model in
+                    NavigationLink {
+                        CommitsView(viewModel: .init(detailsModel: model.detailsModel))
+                    } label: {
                         RepositoryView(model: model)
                     }
+                    .frame(minHeight: 45)
                 }
             }
+            .listStyle(InsetGroupedListStyle())
             .navigationTitle("Repositories")
         }
         .onAppear {

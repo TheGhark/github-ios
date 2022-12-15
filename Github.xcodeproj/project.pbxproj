@@ -23,13 +23,16 @@
 		DB1AEDA1294B80CA00DFEBE7 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDA0294B80CA00DFEBE7 /* Commit.swift */; };
 		DB1AEDA5294B810F00DFEBE7 /* GithubRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDA3294B810000DFEBE7 /* GithubRepositoryTests.swift */; };
 		DB1AEDA8294B81D500DFEBE7 /* GithubServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDA7294B81D500DFEBE7 /* GithubServiceMock.swift */; };
-		DB1AEDAC294B865500DFEBE7 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDAB294B865500DFEBE7 /* DateFormatter+Extensions.swift */; };
 		DB1AEDAF294B879300DFEBE7 /* Repository+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDAE294B879300DFEBE7 /* Repository+Sample.swift */; };
 		DB1AEDB2294B884800DFEBE7 /* RepositoryDTO+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDB1294B884800DFEBE7 /* RepositoryDTO+Sample.swift */; };
 		DB1AEDB4294B8CBA00DFEBE7 /* CommitDTO+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDB3294B8CBA00DFEBE7 /* CommitDTO+Sample.swift */; };
 		DB1AEDB8294B8E9B00DFEBE7 /* RepositoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDB7294B8E9B00DFEBE7 /* RepositoryView.swift */; };
 		DB1AEDBA294B8F0000DFEBE7 /* RepositoryView+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDB9294B8F0000DFEBE7 /* RepositoryView+Model.swift */; };
 		DB1AEDBD294B90A500DFEBE7 /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDBC294B90A500DFEBE7 /* RepositoriesViewModel.swift */; };
+		DB1AEDC1294B983800DFEBE7 /* CommitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDC0294B983800DFEBE7 /* CommitView.swift */; };
+		DB1AEDC3294B986600DFEBE7 /* CommitView+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDC2294B986600DFEBE7 /* CommitView+Model.swift */; };
+		DB1AEDC5294BA7B600DFEBE7 /* CommitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDC4294BA7B600DFEBE7 /* CommitsViewModel.swift */; };
+		DB1AEDC8294BA7D900DFEBE7 /* CommitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AEDC7294BA7D900DFEBE7 /* CommitsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,13 +65,16 @@
 		DB1AEDA0294B80CA00DFEBE7 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		DB1AEDA3294B810000DFEBE7 /* GithubRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepositoryTests.swift; sourceTree = "<group>"; };
 		DB1AEDA7294B81D500DFEBE7 /* GithubServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubServiceMock.swift; sourceTree = "<group>"; };
-		DB1AEDAB294B865500DFEBE7 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		DB1AEDAE294B879300DFEBE7 /* Repository+Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+Sample.swift"; sourceTree = "<group>"; };
 		DB1AEDB1294B884800DFEBE7 /* RepositoryDTO+Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoryDTO+Sample.swift"; sourceTree = "<group>"; };
 		DB1AEDB3294B8CBA00DFEBE7 /* CommitDTO+Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommitDTO+Sample.swift"; sourceTree = "<group>"; };
 		DB1AEDB7294B8E9B00DFEBE7 /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
 		DB1AEDB9294B8F0000DFEBE7 /* RepositoryView+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoryView+Model.swift"; sourceTree = "<group>"; };
 		DB1AEDBC294B90A500DFEBE7 /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
+		DB1AEDC0294B983800DFEBE7 /* CommitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitView.swift; sourceTree = "<group>"; };
+		DB1AEDC2294B986600DFEBE7 /* CommitView+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommitView+Model.swift"; sourceTree = "<group>"; };
+		DB1AEDC4294BA7B600DFEBE7 /* CommitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsViewModel.swift; sourceTree = "<group>"; };
+		DB1AEDC7294BA7D900DFEBE7 /* CommitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +166,6 @@
 			children = (
 				DB1AEDBB294B909900DFEBE7 /* viewModels */,
 				DB1AEDB5294B8E8700DFEBE7 /* views */,
-				DB1AEDA9294B864400DFEBE7 /* extensions */,
 				DB1AED9D294B80A400DFEBE7 /* models */,
 				DB1AED9A294B808A00DFEBE7 /* repository */,
 				DB1AED91294B6E6100DFEBE7 /* dtos */,
@@ -221,14 +226,6 @@
 			path = mocks;
 			sourceTree = "<group>";
 		};
-		DB1AEDA9294B864400DFEBE7 /* extensions */ = {
-			isa = PBXGroup;
-			children = (
-				DB1AEDAB294B865500DFEBE7 /* DateFormatter+Extensions.swift */,
-			);
-			path = extensions;
-			sourceTree = "<group>";
-		};
 		DB1AEDAD294B878700DFEBE7 /* sample */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +239,8 @@
 		DB1AEDB5294B8E8700DFEBE7 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				DB1AEDC6294BA7D000DFEBE7 /* commits */,
+				DB1AEDBF294B982F00DFEBE7 /* commit */,
 				DB1AEDBE294B92DF00DFEBE7 /* repositories */,
 				DB1AEDB6294B8E9000DFEBE7 /* repository */,
 			);
@@ -261,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				DB1AEDBC294B90A500DFEBE7 /* RepositoriesViewModel.swift */,
+				DB1AEDC4294BA7B600DFEBE7 /* CommitsViewModel.swift */,
 			);
 			path = viewModels;
 			sourceTree = "<group>";
@@ -271,6 +271,23 @@
 				DB11D21A294B209700B4A93E /* RepositoriesView.swift */,
 			);
 			path = repositories;
+			sourceTree = "<group>";
+		};
+		DB1AEDBF294B982F00DFEBE7 /* commit */ = {
+			isa = PBXGroup;
+			children = (
+				DB1AEDC0294B983800DFEBE7 /* CommitView.swift */,
+				DB1AEDC2294B986600DFEBE7 /* CommitView+Model.swift */,
+			);
+			path = commit;
+			sourceTree = "<group>";
+		};
+		DB1AEDC6294BA7D000DFEBE7 /* commits */ = {
+			isa = PBXGroup;
+			children = (
+				DB1AEDC7294BA7D900DFEBE7 /* CommitsView.swift */,
+			);
+			path = commits;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,17 +391,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB1AEDA1294B80CA00DFEBE7 /* Commit.swift in Sources */,
+				DB1AEDC8294BA7D900DFEBE7 /* CommitsView.swift in Sources */,
+				DB1AEDC3294B986600DFEBE7 /* CommitView+Model.swift in Sources */,
 				DB1AED93294B6E6A00DFEBE7 /* RepositoryDTO.swift in Sources */,
 				DB1AEDB8294B8E9B00DFEBE7 /* RepositoryView.swift in Sources */,
 				DB11D21B294B209700B4A93E /* RepositoriesView.swift in Sources */,
 				DB1AED8A294B2FF300DFEBE7 /* Endpoint.swift in Sources */,
 				DB1AED95294B708900DFEBE7 /* URLRequest+Init.swift in Sources */,
 				DB1AED9C294B809700DFEBE7 /* GithubRepository.swift in Sources */,
+				DB1AEDC5294BA7B600DFEBE7 /* CommitsViewModel.swift in Sources */,
 				DB1AED8D294B6A0300DFEBE7 /* GithubService.swift in Sources */,
+				DB1AEDC1294B983800DFEBE7 /* CommitView.swift in Sources */,
 				DB11D219294B209700B4A93E /* GithubApp.swift in Sources */,
 				DB1AED97294B79FD00DFEBE7 /* CommitDTO.swift in Sources */,
 				DB1AEDBD294B90A500DFEBE7 /* RepositoriesViewModel.swift in Sources */,
-				DB1AEDAC294B865500DFEBE7 /* DateFormatter+Extensions.swift in Sources */,
 				DB1AED9F294B80B100DFEBE7 /* Repository.swift in Sources */,
 				DB1AEDBA294B8F0000DFEBE7 /* RepositoryView+Model.swift in Sources */,
 			);
