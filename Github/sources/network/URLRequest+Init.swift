@@ -16,6 +16,6 @@ extension URLRequest {
 
         self.init(url: url)
         setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
-        setValue("Bearer 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", forHTTPHeaderField: "Authorization")
+        setValue("Bearer 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", forHTTPHeaderField: "Authorization")
     }
 }
