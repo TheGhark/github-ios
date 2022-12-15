@@ -16,7 +16,7 @@ extension RepositoryDTO {
     func toDomain() -> Repository {
         .init(name: name,
               owner: owner.toDomain(),
-         description: description)
+              description: description)
     }
 }
 

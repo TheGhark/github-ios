@@ -7,7 +7,7 @@ extension Repository {
                        description: String? = nil) -> Self {
         .init(name: name,
               owner: owner,
-        description: description)
+              description: description)
     }
 }
 

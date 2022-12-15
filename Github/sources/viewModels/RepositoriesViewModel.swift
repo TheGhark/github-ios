@@ -1,5 +1,5 @@
-import Foundation
 import Combine
+import Foundation
 
 final class RepositoriesViewModel: ObservableObject {
     // MARK: - Types
@@ -9,6 +9,7 @@ final class RepositoriesViewModel: ObservableObject {
         case loading
         case failed
     }
+
     // MARK: - Properties
 
     @Published private(set) var models: [RepositoryView.Model] = []
@@ -37,12 +38,11 @@ final class RepositoriesViewModel: ObservableObject {
                 }
             } receiveValue: {
                 self.models = $0.map { repository in
-                        .init(name: repository.name,
-                              owner: repository.owner.login,
-                              description: repository.description)
+                    .init(name: repository.name,
+                          owner: repository.owner.login,
+                          description: repository.description)
                 }
             }
             .store(in: &subscriptions)
-
     }
 }

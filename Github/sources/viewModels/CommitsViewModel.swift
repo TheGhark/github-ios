@@ -1,5 +1,5 @@
-import Foundation
 import Combine
+import Foundation
 
 final class CommitsViewModel: ObservableObject {
     // MARK: - Types
@@ -30,7 +30,7 @@ final class CommitsViewModel: ObservableObject {
     // MARK: - Internal
 
     func fetch() {
-        self.state = .loading
+        state = .loading
         repository.fetchCommits(model: detailsModel)
             .map { $0 }
             .sink { completion in
@@ -48,6 +48,7 @@ final class CommitsViewModel: ObservableObject {
 }
 
 // MARK: - Private
+
 private extension CommitsViewModel {
     func createModels(with commits: [Commit]) {
         let dateFormatter = RelativeDateTimeFormatter()
