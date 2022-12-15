@@ -1,5 +1,5 @@
-import Foundation
 import Combine
+import Foundation
 @testable import Github
 
 final class GithubServiceMock {
@@ -24,7 +24,7 @@ extension GithubServiceMock: GithubServiceProtocol {
         }
     }
 
-    func fetchRepository(model: Endpoint.DetailsModel) -> AnyPublisher<RepositoryDTO, Error> {
+    func fetchRepository(model _: Endpoint.DetailsModel) -> AnyPublisher<RepositoryDTO, Error> {
         switch repositoryDetailsResult {
         case let .success(repository):
             return AnyPublisher<RepositoryDTO, Error>(Result<RepositoryDTO, Error>.Publisher(repository))
@@ -35,7 +35,7 @@ extension GithubServiceMock: GithubServiceProtocol {
         }
     }
 
-    func fetchCommits(model: Endpoint.DetailsModel) -> AnyPublisher<[CommitDTO], Error> {
+    func fetchCommits(model _: Endpoint.DetailsModel) -> AnyPublisher<[CommitDTO], Error> {
         switch commitsResult {
         case let .success(commits):
             return AnyPublisher<[CommitDTO], Error>(Result<[CommitDTO], Error>.Publisher(commits))

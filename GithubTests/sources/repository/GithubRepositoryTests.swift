@@ -1,7 +1,7 @@
-import Foundation
-import XCTest
 import Combine
+import Foundation
 @testable import Github
+import XCTest
 
 final class GithubRepositoryTests: XCTestCase {
     var sut: GithubRepositoryProtocol!

@@ -1,5 +1,5 @@
-import Foundation
 import Combine
+import Foundation
 
 protocol GithubRepositoryProtocol {
     func fetchRepositories() -> AnyPublisher<[Repository], Swift.Error>
@@ -16,7 +16,7 @@ final class GithubRepository {
     // MARK: - Initialization
 
     init(dateFormatter: DateFormatter = .iso,
-        service: GithubServiceProtocol = GithubService()) {
+         service: GithubServiceProtocol = GithubService()) {
         self.dateFormatter = dateFormatter
         self.service = service
     }
@@ -32,6 +32,7 @@ extension GithubRepository: GithubRepositoryProtocol {
             }
             .eraseToAnyPublisher()
     }
+
     func fetchRepository(model: Endpoint.DetailsModel) -> AnyPublisher<Repository, Swift.Error> {
         service.fetchRepository(model: model)
             .map { $0.toDomain() }
